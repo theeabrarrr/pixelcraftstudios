@@ -876,6 +876,23 @@
                 }
             });
         });
+const items = Array.from($0.querySelectorAll('.portfolio-item'));
+const images = items.map(item => item.querySelector('img'));
+const imageSrcs = images.map(img => img ? img.src : null);
+const incorrectImage = images.find(img => img.src === "https://theeabrarrr.github.io/img/gaming.jpg");
+if (incorrectImage) {
+  await setElementStyles(incorrectImage, {
+    content: `url(https://theeabrarrr.github.io/pixelcraftstudios/img/gaming.jpg)`
+  });
+  incorrectImage.src = "https://theeabrarrr.github.io/pixelcraftstudios/img/gaming.jpg";
+}
+const updatedItems = Array.from($0.querySelectorAll('.portfolio-item'));
+const updatedImages = updatedItems.map(item => item.querySelector('img'));
+const updatedImageSrcs = updatedImages.map(img => img ? img.src : null);
+const data = {
+    updatedImageSrcs: updatedImageSrcs,
+    updatedImageElements: updatedImages
+}
     </script>
 </body>
 </html>
